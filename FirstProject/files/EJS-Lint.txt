@@ -1,0 +1,22 @@
+EJS-Lint is a linter and syntax checker specifically designed for EJS (Embedded JavaScript) templates. It helps identify and report errors within your EJS code, which can prevent issues during server-side rendering.
+How EJS-Lint Works:
+Parsing:
+EJS-Lint parses the EJS template, focusing on the scriptlet tags (e.g., <%, <%=, <%-).
+Conversion to JavaScript:
+It effectively replaces everything outside of the EJS scriptlet tags with whitespace, maintaining line and column numbers. This results in a (hopefully) valid JavaScript string.
+Syntax Checking:
+The resulting JavaScript string is then passed to a JavaScript syntax checker (like node-syntax-error) to identify any syntax errors within the embedded JavaScript code.
+Key Features:
+Checks Scriptlet and Expression Tags:
+It parses and checks code within various EJS tags, including <% ... %>, <%= ... %>, <%- ... %>, <%_ ... _%>, and -%>.
+Error Reporting:
+If syntax errors are found, it provides detailed error messages, often including the line number where the issue occurred.
+Customization:
+It supports custom delimiters for EJS tags and can be configured to tolerate or disallow certain features like old-style includes (<% include filename %>) or await usage within templates.
+Important Considerations:
+Focus on JavaScript Syntax:
+EJS-Lint primarily focuses on the JavaScript syntax within the EJS tags and does not attempt to check for unclosed EJS tags themselves.
+No Included File Linting:
+It does not lint files that are included within the EJS template, regardless of the inclusion method.
+CLI and API:
+EJS-Lint can be used as a command-line interface tool or integrated into your project programmatically via its API.
